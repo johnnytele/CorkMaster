@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:CorkMaster.ViewModels"
+             x:Class="CorkMaster.AddWine"
+             xmlns:local="clr-namespace:CorkMaster"
+             Title="Add Wine">
+    <ContentPage.Resources>
+        <Style TargetType="Slider">
+            <Setter Property="Margin" Value="30,0,30,0"/>
+        </Style>
+    </ContentPage.Resources>
+    <Grid x:Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout  Padding="10">
+                <VerticalStackLayout.BindingContext>
+                    <viewmodels:RatingViewModel/>
+                </VerticalStackLayout.BindingContext>
+
+                <Entry x:Name="wineName" FontSize="30" FontAttributes="Bold" Placeholder="Wine Name" HorizontalTextAlignment="Center"/>
+                <Entry x:Name="winery" FontSize="20" FontAttributes="Italic" Placeholder="Winery" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
+
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="40">
+                    <Entry x:Name="vintage" WidthRequest="100" Placeholder="Vintage" HorizontalTextAlignment="Center"/>
+                    <Entry x:Name="region" WidthRequest="100" Placeholder="Region" HorizontalTextAlignment="Center"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout x:Name="topStack" HorizontalOptions="Center" Margin="5" Spacing="10"/>
+                
+                <HorizontalStackLayout x:Name="colorAndAlc">
+                    <AbsoluteLayout HorizontalOptions="Start">
+                        <Switch  x:Name="colorType" AbsoluteLayout.LayoutBounds="0.7,0,50,35"
+                            AbsoluteLayout.LayoutFlags="XProportional,YProportional" Toggled="colorType_Toggled"/>
+                    </AbsoluteLayout>
+                    <Label x:Name="colorLabel" Text="Red" VerticalTextAlignment="Center"/>
+                </HorizontalStackLayout>
+                
+                <HorizontalStackLayout Margin="0,20,0,0">
+                    <Label Text="Appearance: " Margin="0,0,5,0" FontAttributes="Bold" FontSize="15"/>
+                    <Label Text="{Binding Appearance}" FontAttributes="Bold" FontSize="15"/>
+                </HorizontalStackLayout>
+                <Label Text="{Binding AppearanceTxt}" FontAttributes="Italic"/>
+                <Slider x:Name="appearance" ThumbImageSource="wineglass.png" Value="{Binding Appearance}" Maximum="2"/>
+
+                <HorizontalStackLayout Margin="0,7,0,0">
+                    <Label Text="Color: " Margin="0,0,5,0" FontAttributes="Bold" FontSize="15"/>
+                    <Label Text="{Binding Color}" FontAttributes="Bold" FontSize="15"/>
+                </HorizontalStackLayout>
+                <Label Text="{Binding ColorTxt}" FontAttributes="Italic"/>
+                <Slider x:Name="color" ThumbImageSource="wineglass.png" Value="{Binding Color}" Maximum="2"/>
+
+                <HorizontalStackLayout Margin="0,7,0,0">
+                    <Label Text="Aroma: " Margin="0,0,5,0" FontAttributes="Bold" FontSize="15"/>
+                    <Label Text="{Binding Aroma}" FontAttributes="Bold" FontSize="15"/>
+                </HorizontalStackLayout>
+                <Label Text="{Binding AromaTxt}" FontAttributes="Italic"/>
+                <Slider x:Name="aroma" ThumbImageSource="wineglass.png" Value="{Binding Aroma}" Maximum="4"/>
+
+                <HorizontalStackLayout Margin="0,7,0,0">
+                    <Label Text="Acesnce: " Margin="0,0,5,0" FontAttributes="Bold" FontSize="15"/>
+                    <Label Text="{Binding Acescence}" FontAttributes="Bold" FontSize="15"/>
+                </HorizontalStackLayout>
+                <Label Text="{Binding AcescenceTxt}" FontAttributes="Italic"/>
+                <Slider x:Name="acescence" ThumbImageSource="wineglass.png" Value="{Binding Acescence}" Maximum="2"/>
+
+                <HorizontalStackLayout Margin="0,7,0,0">
+                    <Label Text="Sugar:  " Margin="0,0,5,0" FontAttributes="Bold" FontSize="15"/>
+                    <Label Text="{Binding Sugar}" FontAttributes="Bold" FontSize="15"/>
+                </HorizontalStackLayout>
+                <Label Text="{Binding SugarTxt}" FontAttributes="Italic"/>
+                <Slider x:Name="sugar" ThumbImageSource="wineglass.png" Value="{Binding Sugar}" Maximum="2" Minimum="1"/>
+
+                <HorizontalStackLayout Margin="0,7,0,0">
+                    <Label Text="Body: " Margin="0,0,5,0" FontAttributes="Bold" FontSize="15"/>
+                    <Label Text="{Binding Body}" FontAttributes="Bold" FontSize="15"/>
+                </HorizontalStackLayout>
+                <Label Text="{Binding BodyTxt}" FontAttributes="Italic"/>
+                <Slider x:Name="body" ThumbImageSource="wineglass.png" Value="{Binding Body}" Maximum="2" Minimum="1"/>
+
+                <HorizontalStackLayout Margin="0,7,0,0">
+                    <Label Text="Flavor: " Margin="0,0,5,0" FontAttributes="Bold" FontSize="15"/>
+                    <Label Text="{Binding Flavor}" FontAttributes="Bold" FontSize="15"/>
+                </HorizontalStackLayout>
+                <Label Text="{Binding FlavorTxt}" FontAttributes="Italic"/>
+                <Slider x:Name="flavor" ThumbImageSource="wineglass.png" Value="{Binding Flavor}" Maximum="2"/>
+
+                <HorizontalStackLayout Margin="0,7,0,0">
+                    <Label Text="Astringency: " Margin="0,0,5,0" FontAttributes="Bold" FontSize="15"/>
+                    <Label Text="{Binding Astringency}" FontAttributes="Bold" FontSize="15"/>
+                </HorizontalStackLayout>
+                <Label Text="{Binding AstringencyTxt}" FontAttributes="Italic"/>
+                <Slider x:Name="astringency" ThumbImageSource="wineglass.png" Value="{Binding Astringency}" Maximum="2"/>
+
+                <HorizontalStackLayout Margin="0,7,0,0">
+                    <Label Text="Overall: " Margin="0,0,5,0" FontAttributes="Bold" FontSize="15"/>
+                    <Label Text="{Binding Overall}" FontAttributes="Bold" FontSize="15"/>
+                </HorizontalStackLayout>
+                <Label Text="{Binding OverallTxt}" FontAttributes="Italic"/>
+                <Slider x:Name="overall" ThumbImageSource="wineglass.png" Value="{Binding Overall}" Maximum="2"/>
+
+                <HorizontalStackLayout Margin="0,7,0,0">
+                    <Label Text="Final: "  Margin="0,0,5,0" FontAttributes="Bold" FontSize="15"/>
+                    <Label Text="{Binding Final}" Margin="0,0,5,0" FontAttributes="Bold" FontSize="15"/>
+                    <Label Text="{Binding FinalTxt}"  Margin="0,0,5,0" FontAttributes="Italic"/>
+                </HorizontalStackLayout>
+                <VerticalStackLayout x:Name="bottomStack" Margin="0,20,0,10" Spacing="10"/>
+                <Button Clicked="Button_Clicked" Text="Add Wine!" ImageSource="image.png" 
+                        BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}}"
+                        Margin="10"
+                        HeightRequest="30"
+                        WidthRequest="200"
+                        CornerRadius="22"/>
+                <BoxView Color="Transparent" HeightRequest="20"/>
+            </VerticalStackLayout>
+
+        </ScrollView>
+    </Grid>
+</ContentPage>

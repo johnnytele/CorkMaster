@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CorkMaster.Settings"
+             Title="Settings">
+    <ContentPage.Resources>
+        <Style TargetType="Switch">
+            <Setter Property="HorizontalOptions" Value="EndAndExpand"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="Margin" Value="0,0,0,0"/>
+        </Style>
+        <Style TargetType="Label" >
+            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </ContentPage.Resources>
+ 
+        
+    <Grid x:Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Text="Top" HorizontalOptions="Center" VerticalOptions="Center" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0"/>
+        
+        <Label Text="Optional Rating Options" HorizontalOptions="Center" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1"/>
+
+        <Label Text="Comments:" Grid.Column="0" Grid.Row="2" />
+        <Switch x:Name="commentSwitch"  Grid.Column="1" Grid.Row="2" Toggled="commentSwitch_Toggled"/>
+ 
+        <Label Text="Location:" Grid.Column="0" Grid.Row="3" />
+        <Switch x:Name="locationSwitch" Grid.Column="1" Grid.Row="3" Toggled="locationSwitch_Toggled"/>
+        
+        <Label Text="Food Pairing:" Grid.Column="0" Grid.Row="4" />
+        <Switch x:Name="foodSwitch" Grid.Column="1" Grid.Row="4" Toggled="foodSwitch_Toggled"/>
+        
+        <Label Text="Date:" Grid.Column="0" Grid.Row="5" />
+        <Switch x:Name="dateSwitch" Grid.Column="1" Grid.Row="5" Toggled="dateSwitch_Toggled"/>
+
+        <Label Text="Alcohol Percentage:" Grid.Column="0" Grid.Row="6" />
+        <Switch x:Name="alcoholSwitch" Grid.Column="1" Grid.Row="6" Toggled="alcoholSwitch_Toggled"/>
+
+    </Grid>
+</ContentPage>

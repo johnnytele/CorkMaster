@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CorkMaster;assembly=CorkMaster"
+             x:Class="CorkMaster.WineList"
+             >
+    <Grid x:Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <HorizontalStackLayout Grid.Row="0">
+            <Label Text="Filter:" VerticalTextAlignment="Center" Margin="10" FontSize="15"/>
+            <Picker x:Name="filterPicker" SelectedIndexChanged="filterPicker_SelectedIndexChanged"
+                    SelectedIndex="0" Margin="3">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Date Tasted (Newest to Oldest)</x:String>
+                        <x:String>Date Tasted (Oldest to Newest)</x:String>
+                        <x:String>Score</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </HorizontalStackLayout>
+        <ListView x:Name="lv" Grid.Row="1" ItemTapped="lv_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Wine">
+                    <ViewCell>
+                        <Grid HeightRequest="80" BackgroundColor="{Binding BackgroundColor}">
+                            <Grid.Shadow>
+                                <Shadow Brush="Black"
+                                        Offset="0,0"
+                                        Radius="80"
+                                        Opacity=".7" />
+                            </Grid.Shadow>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="92"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="55"/>
+                                <RowDefinition Height="25"/>
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding DisplayTitle}" Margin="5,0,0,0" FontAttributes="Bold" FontSize="20" LineBreakMode="WordWrap" MaxLines="2" LineHeight="1.2" VerticalOptions="Center" Grid.Column="0" Grid.Row="0"/>
+                            <Border StrokeThickness="0" StrokeShape="RoundRectangle 40,40,40,40" Margin="0,-10,10,-25" VerticalOptions="End" WidthRequest="80" HeightRequest="80" BackgroundColor="White" Grid.RowSpan="2" Grid.Row="0" Grid.Column="1">
+                                <Label Text="{Binding Total}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="18" FontAttributes="Bold" VerticalOptions="Start" HorizontalOptions="Start" 
+                            HeightRequest="75" WidthRequest="80" />
+                            </Border>
+                            <Label Text="{Binding Winery}" FontAttributes="Italic" Margin="5, 0, 0, 0" Grid.Column="0" Grid.Row="1"/>
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>

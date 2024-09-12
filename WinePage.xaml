@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:drawables="clr-namespace:CorkMaster.Drawables"
+             x:Class="CorkMaster.WinePage">
+    <ContentPage.Resources>
+        <drawables:BottleView x:Key="bottleView"/>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="vsStyle">
+                
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+    <VerticalStackLayout x:Name="mainStack">
+        <Label x:Name="nameLbl" FontAttributes="Bold" FontSize="30" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        <Label x:Name="wineryLbl" FontSize="20"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        <Label x:Name="dateLbl" FontSize="10" FontAttributes="Italic" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+
+ 
+        <Border x:Name="scoreCircle" StrokeThickness="0" StrokeShape="RoundRectangle 40,40,40,40" Margin="10" VerticalOptions="Center" WidthRequest="80" HeightRequest="80" HorizontalOptions="End">
+            <Label x:Name="totalScoreLbl" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="18" FontAttributes="Bold" VerticalOptions="Start" HorizontalOptions="Start" 
+                HeightRequest="80" WidthRequest="80" />
+        </Border>
+        
+        <GraphicsView Drawable="{StaticResource bottleView}" x:Name="graphic"
+              WidthRequest="300" HeightRequest="630" HorizontalOptions="Start"/>
+        
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
